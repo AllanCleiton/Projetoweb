@@ -13,6 +13,7 @@ public class UsuarioDAO {
 		//Mount SQL
 		String sql = "insert into usuario (nome,login,senha) values (?,?,MD5(?))";
 		
+		
 		//build the PreparedStatement with o SQl 
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
@@ -25,13 +26,12 @@ public class UsuarioDAO {
 			preparador.execute();
 			preparador.close();
 			
-			System.out.println("Usuario cadastrado com sucesso!");
+			System.out.println("Usuario cadastrado com sucesso! ");
 		} catch (SQLException e) {
 			
-			System.out.println("Erro ao tentar cadastrar usuario." + e.getMessage());
+			System.out.println("Erro ao tentar cadastrar usuario. " + e.getMessage());
 		}
 	}
-	
 	
 	public void Alterar(Usuario usuario) {
 		//Mount SQL
@@ -55,7 +55,6 @@ public class UsuarioDAO {
 			System.out.println("Erro ao tentar alterar usuario. >" + e.getMessage());
 		}
 	}
-	
 	
 	public void Excluir(Usuario usuario) {
 		//Mount SQL
@@ -113,5 +112,4 @@ public class UsuarioDAO {
 		}
 		return usuQuary;
 	}
-	
 }

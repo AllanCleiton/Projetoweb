@@ -1,24 +1,30 @@
 package com.AllanCleiton.Testes;
 import java.util.List;
 import com.AllanCleiton.entidades.Usuario;
+import com.AllanCleiton.jdbc.Conexao;
 import com.AllanCleiton.jdbc.UsuarioDAO;
 
 public class TestConexao {
 
 	public static void main(String[] args) {
 		
-		testCadastrar();
 		
-		testAlterar();
+		//Conexao.getConnection();
 		
-		testExcluir();
+		//testCadastrar();
 		
-		testBuscarTodos();
+		//testAlterar();
+		
+		//testExcluir();
+		
+		//testBuscarTodos();
 	}
 
 	private static void testCadastrar() {
 		Usuario usuario = new Usuario();
-		
+		usuario.setNome("kaka");
+		usuario.setLogin("kaka");
+		usuario.setSenha("14532");
 		UsuarioDAO usuariodao = new UsuarioDAO();
 		
 		usuariodao.Cadastrar(usuario);

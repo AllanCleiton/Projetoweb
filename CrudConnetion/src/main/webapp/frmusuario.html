@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de usuário</title>
+    <style>
+        body{
+            display: flex;
+            background-color: grey;
+            height: 600px;
+            width: 400px;
+            margin: auto;
+        }
+        
+        form{
+           background-color: rgb(78, 151, 151);
+           height: 300px;
+           width: 300px;
+           box-sizing: border-box;
+           margin: auto;
+           padding: 20px;
+           border-radius: 10px;
+        }
+
+        div{
+           
+            display: flexbox;
+            margin: auto;
+            padding: 4px;
+            height: 140px;
+            
+        }
+
+        input{
+            margin: 2%;
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        label{
+            background-color: rgb(58, 110, 110);
+            padding: 6px;
+            border-radius: 5px;
+            
+        }
+
+       
+        
+    </style>
+</head>
+
+<body>
+    <form action="usucontroller.do" method="post">
+        <h1 style="color: aliceblue;">Cadastrar usuario</h1>
+        <div>
+            <label style="color: aliceblue;">Nome: </label>
+            <input type="text" name="txtnome" value="">
+            <label style="color: aliceblue;">Login: </label>
+            <input type="text" name="txtlogin" value="">
+            <label style="color: aliceblue;">Senha: </label>
+            <input type="password" name="txtsenha" value="" maxlength="6">
+        </div>
+        <input type="submit" value="Cadastrar">
+    </form>
+</body>
+
+</html>
