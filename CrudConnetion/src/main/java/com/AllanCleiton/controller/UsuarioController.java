@@ -31,7 +31,7 @@ public class UsuarioController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//doGet(request, response);
+		
 		System.out.println("Chamando Metodo POST! ");
 		
 		Usuario usuario = new Usuario();

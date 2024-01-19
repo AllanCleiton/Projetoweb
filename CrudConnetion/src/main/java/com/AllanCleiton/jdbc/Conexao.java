@@ -18,7 +18,7 @@ public class Conexao {
 			System.out.println("Nao pode conectar " + e.getMessage());
 			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Driver não encontrado!");
 			
 		}
 		

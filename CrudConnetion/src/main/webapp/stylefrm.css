@@ -1,0 +1,55 @@
+
+form{
+    background-color: rgb(78, 151, 151);
+    height: 300px;
+    width: 300px;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    
+ }
+
+ input{
+    margin: 2%;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+label{
+    background-color: rgb(58, 110, 110);
+    padding: 6px;
+    border-radius: 5px;
+    
+}
+
+
+
+#sub01{
+    display: flex;
+    justify-content: end;
+
+}
+
+#div01{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#sub02{
+    margin-right: 18px;
+    background-color: grey;
+}
+
+#sub02:hover{
+    background-color: rgb(102, 201, 201);
+    transition: 0.1s;
+}
+
+#divL{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
