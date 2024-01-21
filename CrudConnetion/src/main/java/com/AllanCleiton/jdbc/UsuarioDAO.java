@@ -112,4 +112,34 @@ public class UsuarioDAO {
 		}
 		return usuQuary;
 	}
+	
+	public Usuario BuscaPorId(Integer id) {
+		Usuario usuario = new Usuario();
+		
+		String sql = "select * from usuario where iduse = ?";
+		
+		try {
+			
+			PreparedStatement preparador = con.prepareStatement(sql);
+			preparador.setInt(1, id);
+			ResultSet resultado = preparador.executeQuery();
+			
+			if(resultado.next()) {
+				usuario.setNome(resultado.getString("nome"));
+				usuario.setLogin(resultado.getString("login"));
+				usuario.setSenha(resultado.getString("senha"));
+			}
+			
+			preparador.close();
+			
+			System.out.printf("%s | %s | %s ",usuario.getNome(), usuario.getLogin(), usuario.getSenha());
+			
+		}catch(SQLException e) {
+			System.out.println("Erro ao tentar Buscar Usuario. >" + e.getMessage());
+		}
+		
+		return usuario;
+	}
+	
+	
 }

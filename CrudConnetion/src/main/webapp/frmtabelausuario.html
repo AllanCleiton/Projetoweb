@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de usuário</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="stylefrm.css">
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                
+            }
+            table{
+                width: 400px;
+                border-collapse: collapse;
+                margin: auto;
+            }
+            thead{
+                background-color: rgba(81, 167, 236, 0.842);
+                border-bottom: 2px solid black;
+            }
+            .coluna{
+                background-color: rgba(204, 248, 248, 0.822);
+                
+            }
+            .coluna2{
+                background-color: rgb(248, 241, 232);
+                
+            }
+            td{
+                border: 1px solid black;
+                padding: 8px;
+                border-right: 2px solid black;
+                
+            }
+            th{
+                border: 1px solid black;
+                padding: 5px;
+                border-right: 2px solid black;
+                
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <a href="#">HOME</a>
+            <a href="frmusuario.html">CADASTRAR</a>
+            <a href="frmaltusuario.html">ALTERAR</a>
+            <a href="#">EXCLUIR</a>
+            <a href="#">PESQUISAR</a>
+        </header>
+    
+        <!--Tabela-->
+        <table style="border: 1px solid black; background-color: rgb(185, 185, 185); border-right: 2px solid black;">
+            <thead><!--Cabecalho da tabela-->
+                <tr> <!--Primeira linha-->
+                    <th >Nome</th>
+                    <th >Login</th>
+                    <th >Senha</th>
+                </tr>
+            </thead>
+            
+            <tbody> <!--Corpo da Tabela-->
+                <tr> <!--Primeira linha-->
+                    <td class="coluna">A1</td>
+                    <td class="coluna2">B1</td>
+                    <td class="coluna">C1</td>
+                </tr>
+                <tr> <!--Segunda linha-->
+                    <td class="coluna">A2</td>
+                    <td class="coluna2">B2</td>
+                    <td class="coluna">C2</td>
+                </tr>
+                <tr><!--Tereira linha-->
+                    <td class="coluna">A3</td>
+                    <td class="coluna2">B3</td>
+                    <td class="coluna">C3</td>
+                </tr>
+                <tr> <!--Quarta linha-->
+                    <td class="coluna">A4</td>
+                    <td class="coluna2">B4</td>
+                    <td class="coluna">C4</td>
+                </tr>
+            </tbody>
+
+            <tfoot> <!--Rodape da tabela-->
+                <tr>
+                    <th style="background-color: rgb(185, 185, 185);">Exemplo</th>
+                    <td style="border-right: none; background-color: rgb(185, 185, 185);">Exemplo</td>
+                </tr>
+            </tfoot>
+            
+        </table>
+    </body>
+    
+    </html>

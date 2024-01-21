@@ -18,6 +18,8 @@ public class TestConexao {
 		//testExcluir();
 		
 		//testBuscarTodos();
+		
+		testbuscaid();
 	}
 
 	private static void testCadastrar() {
@@ -62,6 +64,14 @@ public class TestConexao {
 			System.out.printf("%d | %s | %s | %s \n", u.getId(), u.getNome(), u.getLogin(), u.getSenha());
 		}
 		
+		
+	}
+	
+	private static void testbuscaid() {
+		
+		UsuarioDAO usuariodao = new UsuarioDAO();
+		
+		usuariodao.BuscaPorId(1);
 		
 	}
 
