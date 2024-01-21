@@ -19,7 +19,7 @@ public class TestConexao {
 		
 		//testBuscarTodos();
 		
-		testbuscaid();
+		//testBuscaId();
 	}
 
 	private static void testCadastrar() {
@@ -67,11 +67,14 @@ public class TestConexao {
 		
 	}
 	
-	private static void testbuscaid() {
+	private static void testBuscaId() {
 		
 		UsuarioDAO usuariodao = new UsuarioDAO();
+		Usuario usuario = new Usuario();
 		
-		usuariodao.BuscaPorId(1);
+		usuario = usuariodao.BuscaPorId(13);
+		
+		System.out.printf("%d | %s | %s | %s ",usuario.getId() , usuario.getNome(), usuario.getLogin(), usuario.getSenha());
 		
 	}
 

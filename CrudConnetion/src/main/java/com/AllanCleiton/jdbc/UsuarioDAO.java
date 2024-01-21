@@ -35,17 +35,17 @@ public class UsuarioDAO {
 	
 	public void Alterar(Usuario usuario) {
 		//Mount SQL
-		String sql = "update usuario set login = ? , senha = ? where iduse = ?";
+		String sql = "update usuario set nome = ?, login = ? , senha = MD5(?) where iduse = ?";
 		
 		//build the PreparedStatement with o SQl 
 		try {
 			PreparedStatement preparador = con.prepareStatement(sql);
 			
 			//Replacing SQL statement parameters
-		
-			preparador.setString(1, usuario.getLogin());
-			preparador.setString(2, usuario.getSenha());
-			preparador.setInt(3, usuario.getId());
+			preparador.setString(1, usuario.getNome());
+			preparador.setString(2, usuario.getLogin());
+			preparador.setString(3, usuario.getSenha());
+			preparador.setInt(4, usuario.getId());
 			
 			preparador.execute();
 			preparador.close();
@@ -91,14 +91,14 @@ public class UsuarioDAO {
 			ResultSet resultado = preparador.executeQuery();
 			
 			while(resultado.next()) {
-				Usuario usu = new Usuario();
+				Usuario usuario = new Usuario();
 				
-				usu.setId(resultado.getInt("iduse"));
-				usu.setNome(resultado.getString("nome"));
-				usu.setLogin(resultado.getString("login"));
-				usu.setSenha(resultado.getString("senha"));
+				usuario.setId(resultado.getInt("iduse"));
+				usuario.setNome(resultado.getString("nome"));
+				usuario.setLogin(resultado.getString("login"));
+				usuario.setSenha(resultado.getString("senha"));
 				
-				usuQuary.add(usu);
+				usuQuary.add(usuario);
 				
 			}
 			
@@ -114,7 +114,8 @@ public class UsuarioDAO {
 	}
 	
 	public Usuario BuscaPorId(Integer id) {
-		Usuario usuario = new Usuario();
+		//pointer for user start with null.
+		Usuario usuario = null;
 		
 		String sql = "select * from usuario where iduse = ?";
 		
@@ -125,6 +126,10 @@ public class UsuarioDAO {
 			ResultSet resultado = preparador.executeQuery();
 			
 			if(resultado.next()) {
+				//if exist one register in database, the user pointer is initialized
+				usuario = new Usuario();
+				
+				usuario.setId(resultado.getInt("iduse")); 
 				usuario.setNome(resultado.getString("nome"));
 				usuario.setLogin(resultado.getString("login"));
 				usuario.setSenha(resultado.getString("senha"));
@@ -132,13 +137,15 @@ public class UsuarioDAO {
 			
 			preparador.close();
 			
-			System.out.printf("%s | %s | %s ",usuario.getNome(), usuario.getLogin(), usuario.getSenha());
+			
 			
 		}catch(SQLException e) {
-			System.out.println("Erro ao tentar Buscar Usuario. >" + e.getMessage());
+			e.printStackTrace();
 		}
 		
+		
 		return usuario;
+		
 	}
 	
 	

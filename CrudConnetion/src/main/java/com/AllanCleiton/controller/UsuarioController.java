@@ -34,20 +34,40 @@ public class UsuarioController extends HttpServlet {
 		
 		System.out.println("Chamando Metodo POST! ");
 		
-		Usuario usuario = new Usuario();
 		
-		usuario.setNome(request.getParameter("txtnome"));
-		usuario.setLogin(request.getParameter("txtlogin"));
-		usuario.setSenha(request.getParameter("txtsenha"));
+		String p = request.getParameter("btnsubmit");
 		
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		usuarioDAO.Cadastrar(usuario);
+		if (p.equals("Alterar")) {
+			Usuario usuario = new Usuario();
+			
+			usuario.setId(Integer.parseInt(request.getParameter("txtid")));
+			usuario.setNome(request.getParameter("txtnome"));
+			usuario.setLogin(request.getParameter("txtlogin"));
+			usuario.setSenha(request.getParameter("txtsenha"));
+			
+			
+			//asks the DAO user to register in the database
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			usuarioDAO.Alterar(usuario);
+			
+		}
 		
-		PrintWriter  saida = response.getWriter();
-		saida.println("Cadastrado");
 		
-		System.out.println(usuario.getNome() + usuario.getLogin() + usuario.getSenha());
+		if(p.equals("Cadastrar")) {
+			//creates the user object and inserts the values ​​from the screen
+			Usuario usuario = new Usuario();
+			usuario.setNome(request.getParameter("txtnome"));
+			usuario.setLogin(request.getParameter("txtlogin"));
+			usuario.setSenha(request.getParameter("txtsenha"));
+			
+			
+			//asks the DAO user to register in the database
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			usuarioDAO.Cadastrar(usuario);
+			
+		}
+	
 	}
 
 }

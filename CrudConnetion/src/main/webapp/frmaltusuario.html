@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Alterar usuário</title>
-        <link rel="sty lesheet" href="style.css">
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="stylefrm.css">
     </head>
     
@@ -17,7 +17,7 @@
             <a href="#">PESQUISAR</a>
         </header>
     
-        <form action="usucontroller.do" method="post">
+        <form action="usucontroller.do" method="post" autocomplete="off">
             <h1 style="color: aliceblue;">Alterar usuario</h1>
             
             <div id="div01">
@@ -35,8 +35,9 @@
                 </div>
             </div>
             
-            <div id="sub01"><input type="submit" value="Cadastrar" id="sub02"></div>
+            <div id="sub01"><input type="submit" name="btnsubmit" value="Alterar" id="sub02" ></div>
         </form>
+
     </body>
     
     </html>
