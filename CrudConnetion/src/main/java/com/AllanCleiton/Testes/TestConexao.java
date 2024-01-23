@@ -9,17 +9,17 @@ public class TestConexao {
 	public static void main(String[] args) {
 		
 		
-		//Conexao.getConnection();
+		Conexao.getConnection();
 		
-		//testCadastrar();
+		testCadastrar();
 		
-		//testAlterar();
+		testAlterar();
 		
-		//testExcluir();
+		testExcluir();
 		
-		//testBuscarTodos();
+		testBuscarTodos();
 		
-		//testBuscaId();
+		testBuscaId();
 	}
 
 	private static void testCadastrar() {

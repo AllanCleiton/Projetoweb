@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+table{
+    width: 400px;
+    border-collapse: collapse;
+    margin: auto;
+}
+thead{
+    background-color: rgba(81, 167, 236, 0.842);
+    border-bottom: 2px solid black;
+}
+.coluna{
+    background-color: rgba(204, 248, 248, 0.822);
+    
+}
+.coluna2{
+    background-color: rgb(248, 241, 232);
+    
+}
+td{
+    border: 1px solid black;
+    padding: 8px;
+    border-right: 2px solid black;
+    
+}
+th{
+    border: 1px solid black;
+    padding: 5px;
+    border-right: 2px solid black;
+    
+}

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cadastro de usuário</title>
+        <title>Excluir usuário</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="stylefrm.css">
     </head>
@@ -15,27 +15,25 @@
             <a href="frmaltusuario.html">ALTERAR</a>
             <a href="frmbuscarusuario.html">PESQUISAR</a>
             <a href="frmexcluirusuario.html">EXCLUIR</a>
-            
         </header>
     
         <form action="usucontroller.do" method="post" autocomplete="off">
-            <h1 style="color: aliceblue;">Cadastrar usuario</h1>
+            <h1 style="color: aliceblue;">Excluir usuario</h1>
             
             <div id="div01">
                 <div id="divL">
-                    <label style="color: aliceblue;">Nome: </label>
-                    <label style="color: aliceblue;">Login: </label>
-                    <label style="color: aliceblue;">Senha: </label>
+                    <label style="color: aliceblue;">ID: </label>
+                   
                 </div>
                 <div>
-                    <input type="text" name="txtnome" value="">
-                    <input type="text" name="txtlogin" value="">
-                    <input type="password" name="txtsenha" value="" maxlength="6">
+                    <input type="text" name="txtid" value="">
+               
                 </div>
             </div>
             
-            <div id="sub01"><input type="submit" name="btnsubmit" value="Cadastrar" id="sub02"></div>
+            <div id="sub01"><input type="submit" name="btnsubmit" value="Excluir" id="sub02" ></div>
         </form>
+
     </body>
     
     </html>
