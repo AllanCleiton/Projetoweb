@@ -1,21 +1,21 @@
 package com.AllanCleiton.controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import com.AllanCleiton.entidades.HtmlTelas;
+
 import com.AllanCleiton.entidades.Usuario;
 import com.AllanCleiton.jdbc.UsuarioDAO;
 
 
 public class UsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	HtmlTelas telas = new HtmlTelas();   
+	
 	
     public UsuarioController() {
         super();
@@ -26,24 +26,19 @@ public class UsuarioController extends HttpServlet {
 		
 		System.out.println("Chamando metodod get!");
 		
+		//CRIANDO A LISTA DE USUARIOS
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
-		
 		ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();
 		
-		PrintWriter html = response.getWriter();
-		html.println(telas.Inicio_Tabela());
+		//ENCAMINHAMENTO PARA O JSP
+		//COLOCANDO A LISTA DE USUARIO NO REQUEST
+		request.setAttribute("Lista", lista);
 		
-		for(Usuario usuario: lista) {
-			html = response.getWriter();
-			html.println("<tr> <!--Primeira linha-->\r\n"
-		+ "                    <td class=\"coluna\">"+usuario.getId()+"</td>\r\n"
-		+ "                    <td class=\"coluna2\">"+usuario.getNome()+"</td>\r\n"
-		+ "                    <td class=\"coluna\">"+usuario.getLogin()+"</td>\r\n"
-		+ "                </tr>");
-		}
+		// ENCAMINHAR PARA O JSP
 		
-		html = response.getWriter();
-		html.println(telas.Fim_Tabela());
+		RequestDispatcher saida = request.getRequestDispatcher("listausuario.jsp");
+		saida.forward(request, response);;
+		
 	
 	}
 
@@ -69,8 +64,7 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.Alterar(usuario);
 			
-			PrintWriter html = response.getWriter();
-			html.println(telas.TelaAlterar());
+			
 			
 		}
 		
@@ -87,8 +81,9 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.Cadastrar(usuario);
 			
-			PrintWriter html = response.getWriter();
-			html.println(telas.TelaCadastro());
+			RequestDispatcher saida = request.getRequestDispatcher("telacadastro.jsp");
+			saida.forward(request, response);
+			
 		}
 		
 		
@@ -105,10 +100,8 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.Excluir(usuario);
 			
-			PrintWriter html = response.getWriter();
-			html.println(telas.TelaAlterar());
-		}
 	
-	}
+		}
 
+	}
 }
