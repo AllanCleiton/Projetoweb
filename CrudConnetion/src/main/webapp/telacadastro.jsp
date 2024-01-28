@@ -5,19 +5,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cadastro de usu·rio</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="stylefrm.css">
+        <title>Cadastro de usuÔøΩrio</title>
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/stylefrm.css">
     </head>
     
     <body>
         <header>
-            <a href="#">HOME</a>
-            <a href="frmusuario.html">CADASTRAR</a>
-            <a href="frmaltusuario.html">ALTERAR</a>
-            <a href="frmbuscarusuario.html">PESQUISAR</a>
-            <a href="frmexcluirusuario.html">EXCLUIR</a>
-            
+            <a id="nav" href="#">HOME</a>
+            <a id="nav" href="frmusuario.html">CADASTRAR</a>
+            <a id="nav" href="frmaltusuario.html">ALTERAR</a>
+            <a id="nav" href="usucontroller.do">LISTAR USU√ÅRIO</a>
         </header>
     
         <form action="usucontroller.do" method="post" autocomplete="off" style="margin-top: 0%;">

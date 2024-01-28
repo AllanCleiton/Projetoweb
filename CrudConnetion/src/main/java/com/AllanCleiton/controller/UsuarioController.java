@@ -24,7 +24,18 @@ public class UsuarioController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("Chamando metodod get!");
+		System.out.println("Chamando metodod get..");
+		
+		String action = request.getParameter("action");
+		String id = request.getParameter("id");
+		
+		if(action != null && action.equals("excluir")) {
+			Usuario usuario = new Usuario();
+			usuario.setId(Integer.parseInt(id));
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			usuarioDAO.Excluir(usuario);
+			System.out.println("Registro excluido");
+		}
 		
 		//CRIANDO A LISTA DE USUARIOS
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -86,22 +97,5 @@ public class UsuarioController extends HttpServlet {
 			
 		}
 		
-		
-		if(p.equals("Excluir")) {
-			//creates the user object and inserts the values ​​from the screen
-			Usuario usuario = new Usuario();
-			usuario.setId(Integer.parseInt(request.getParameter("txtid")));
-			usuario.setNome(request.getParameter("txtnome"));
-			usuario.setLogin(request.getParameter("txtlogin"));
-			usuario.setSenha(request.getParameter("txtsenha"));
-			
-			
-			//asks the DAO user to register in the database
-			UsuarioDAO usuarioDAO = new UsuarioDAO();
-			usuarioDAO.Excluir(usuario);
-			
-	
-		}
-
 	}
 }

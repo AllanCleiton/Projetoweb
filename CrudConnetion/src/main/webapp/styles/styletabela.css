@@ -1,0 +1,36 @@
+table{
+    background-color: #FFFFFF;
+    width: 800px;
+    border-collapse: collapse;
+    
+}
+thead{
+    background-color: #4e81bd;
+    border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+
+td{
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 16px;
+    border-right: 2px solid rgb(255, 255, 255);
+    
+}
+th{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 5px;
+    border-right: 2px solid rgb(255, 255, 255);
+    
+}
+
+tbody > tr:nth-child(2n){
+    background-color: #b8cce4;
+}
+
+main{
+   
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
