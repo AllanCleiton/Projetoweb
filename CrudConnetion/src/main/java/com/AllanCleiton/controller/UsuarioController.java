@@ -23,35 +23,41 @@ public class UsuarioController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//MENSAGEM NO CONSOLE
 		System.out.println("Chamando metodod get..");
+		String action = request.getParameter("action");   //CAPTURA PARAMETRO DA TELA
 		
-		String action = request.getParameter("action");
-		String id = request.getParameter("id");
-
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
-		if(action != null && action.equals("excluir")) {
+		
+		UsuarioDAO usuarioDAO = new UsuarioDAO();   //INSTANCIANDO OBJETO DA CLASSE USUARIODAO
+		
+		if(action != null && action.equals("excluir")) {   //ESTRUTURA DE DECISAO PARA ACAO DO CONTROLLER
+			String id = request.getParameter("id");
 			Usuario usuario = new Usuario();
 			usuario.setId(Integer.parseInt(id));
-			
 			usuarioDAO.Excluir(usuario);
-			System.out.println("Registro excluido");
 		}
 		
-		//CRIANDO A LISTA DE USUARIOS
 		
-		ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();
+		if(action != null && action.equals("alt")) {   //ESTRUTURA DE DECISAO PARA ACAO DO CONTROLLER
+			String id = request.getParameter("id");   //CAPTURA PARAMETRO DA TELA
+			Usuario usuario = usuarioDAO.BuscaPorId(Integer.parseInt(id));  //BUSCA UM REGISTRO USUARIO ATRAVEZ DO METODO BUSCA POR ID DA CLASSE USUARIODAO
+			request.setAttribute("usuario", usuario);   //CRIANDO UM ATRIBUTO DENTRO DO OBJETO REQUEST COM O OBJETO USUARIO 
+			
+			
+			RequestDispatcher saida = request.getRequestDispatcher("frmalterarusuario.jsp");    //ENCAMINHANDO PARA O JSP
+			saida.forward(request, response);
+		}
 		
-		//ENCAMINHAMENTO PARA O JSP
-		//COLOCANDO A LISTA DE USUARIO NO REQUEST
-		request.setAttribute("Lista", lista);
-		
-		// ENCAMINHAR PARA O JSP
-		
-		RequestDispatcher saida = request.getRequestDispatcher("listausuario.jsp");
-		saida.forward(request, response);;
-		
+		if(action != null && action.equals("list")) {   //ESTRUTURA DE DECISAO PARA ACAO DO CONTROLLER
+			ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();   //CRIANDO A LISTA DE USUARIOS ATRAVEZ DO METODO BUSCAR TODOS
+			
+			request.setAttribute("Lista", lista);   //CRIA UM ATRIBITO DENTRO DO REQUEST COM A LISTA DE USUARIO 
+			
+			//ENCAMINHAMENTO PARA O JSP
+			RequestDispatcher saida = request.getRequestDispatcher("listausuario.jsp");
+			saida.forward(request, response);
+		}
 	
 	}
 
@@ -77,6 +83,12 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.Alterar(usuario);
 			
+			ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();   //CRIANDO A LISTA DE USUARIOS ATRAVEZ DO METODO BUSCAR TODOS
+			
+			request.setAttribute("Lista", lista);   //CRIA UM ATRIBITO DENTRO DO REQUEST COM A LISTA DE USUARIO 
+			
+			RequestDispatcher saida = request.getRequestDispatcher("listausuario.jsp");  //ENCAMINHAMENTO PARA O JSP
+			saida.forward(request, response);
 			
 			
 		}

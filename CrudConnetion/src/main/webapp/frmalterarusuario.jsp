@@ -1,23 +1,31 @@
+<%@page import= "com.AllanCleiton.entidades.Usuario" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar usu√°rio</title>
+    <title>Alterar usu·rio</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/stylefrm.css">
 </head>
 
 <body>
+	
+	<%
+	Usuario usuario = (Usuario)request.getAttribute("usuario");
+	%>
+	
     <header>
         <a id="nav" href="#">HOME</a>
         <a id="nav" href="frmusuario.html">CADASTRAR</a>
-        <a id="nav" href="frmaltusuario.html">ALTERAR</a>
-        <a id="nav" href="usucontroller.do?action=list">LISTAR USU√ÅRIO</a>
+        <a id="nav" href="frmalterarusuario.jsp">ALTERAR</a>
+        <a id="nav" href="usucontroller.do?action=list">LISTAR USU¡RIO</a>
     </header>
 
     <form action="usucontroller.do" method="post" autocomplete="off" style="margin-top: 0%;">
-        <h1 style="color: aliceblue; ">Alterar usu√°rio</h1>
+        <h1 style="color: aliceblue; ">Alterar usu·rio</h1>
         
         <div id="div01">
             <div id="divL">
@@ -27,10 +35,10 @@
                 <label style="color: aliceblue;">Senha: </label>
             </div>
             <div>
-                <input type="text" name="txtid" value="">
-                <input type="text" name="txtnome" value="">
-                <input type="text" name="txtlogin" value="">
-                <input type="password" name="txtsenha" value="" maxlength="6">
+                <input type="text" name="txtid" value="<%=usuario.getId() %>">
+                <input type="text" name="txtnome" value="<%=usuario.getNome() %>">
+                <input type="text" name="txtlogin" value="<%=usuario.getLogin() %>">
+              	<input type="password" name="txtsenha" value="<%=usuario.getSenha() %>">
             </div>
         </div>
         
