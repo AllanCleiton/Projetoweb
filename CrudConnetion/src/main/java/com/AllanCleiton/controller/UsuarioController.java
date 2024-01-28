@@ -28,17 +28,19 @@ public class UsuarioController extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		String id = request.getParameter("id");
+
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		
 		if(action != null && action.equals("excluir")) {
 			Usuario usuario = new Usuario();
 			usuario.setId(Integer.parseInt(id));
-			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			
 			usuarioDAO.Excluir(usuario);
 			System.out.println("Registro excluido");
 		}
 		
 		//CRIANDO A LISTA DE USUARIOS
-		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		
 		ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();
 		
 		//ENCAMINHAMENTO PARA O JSP

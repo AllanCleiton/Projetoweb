@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
     <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cadastro de usuÔøΩrio</title>
+        <title>CADASTRO DE USUARIO</title>
         <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/stylefrm.css">
     </head>
@@ -15,7 +15,7 @@
             <a id="nav" href="#">HOME</a>
             <a id="nav" href="frmusuario.html">CADASTRAR</a>
             <a id="nav" href="frmaltusuario.html">ALTERAR</a>
-            <a id="nav" href="usucontroller.do">LISTAR USU√ÅRIO</a>
+            <a id="nav" href="usucontroller.do">LISTAR USU¡RIO</a>
         </header>
     
         <form action="usucontroller.do" method="post" autocomplete="off" style="margin-top: 0%;">
