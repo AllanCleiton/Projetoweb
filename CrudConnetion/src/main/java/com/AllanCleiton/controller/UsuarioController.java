@@ -36,6 +36,9 @@ public class UsuarioController extends HttpServlet {
 			Usuario usuario = new Usuario();
 			usuario.setId(Integer.parseInt(id));
 			usuarioDAO.Excluir(usuario);
+			
+			//REDIRECIONAMENTO PELO BROWSER
+			response.sendRedirect("usucontroller.do?action=list");
 		}
 		
 		
@@ -53,7 +56,7 @@ public class UsuarioController extends HttpServlet {
 			ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();   //CRIANDO A LISTA DE USUARIOS ATRAVEZ DO METODO BUSCAR TODOS
 			
 			request.setAttribute("Lista", lista);   //CRIA UM ATRIBITO DENTRO DO REQUEST COM A LISTA DE USUARIO 
-			
+			request.setAttribute("nome", "Allan");
 			//ENCAMINHAMENTO PARA O JSP
 			RequestDispatcher saida = request.getRequestDispatcher("listausuario.jsp");
 			saida.forward(request, response);
@@ -83,6 +86,7 @@ public class UsuarioController extends HttpServlet {
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
 			usuarioDAO.Alterar(usuario);
 			
+			//REDIRECIONAMENTO 
 			ArrayList<Usuario> lista = usuarioDAO.BuscarTodos();   //CRIANDO A LISTA DE USUARIOS ATRAVEZ DO METODO BUSCAR TODOS
 			
 			request.setAttribute("Lista", lista);   //CRIA UM ATRIBITO DENTRO DO REQUEST COM A LISTA DE USUARIO 

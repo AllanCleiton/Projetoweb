@@ -11,7 +11,7 @@ public class UsuarioDAO {
 	
 	public void Cadastrar(Usuario usuario) {
 		//Mount SQL
-		String sql = "insert into usuario (nome,login,senha) values (?,?,MD5(?))";
+		String sql = "insert into usuario (nome,login,senha) values (?,?,?)";
 		
 		
 		//build the PreparedStatement with o SQl 
@@ -35,7 +35,7 @@ public class UsuarioDAO {
 	
 	public void Alterar(Usuario usuario) {
 		//Mount SQL
-		String sql = "update usuario set nome = ?, login = ? , senha = MD5(?) where iduse = ?";
+		String sql = "update usuario set nome = ?, login = ? , senha = ? where iduse = ?";
 		
 		//build the PreparedStatement with o SQl 
 		try {
