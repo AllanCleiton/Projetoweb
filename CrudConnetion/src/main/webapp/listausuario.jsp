@@ -1,4 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.util.ArrayList" %>
+<%@page import= "com.AllanCleiton.entidades.Usuario" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,17 +31,20 @@
                 </tr>
             </thead> 
             <tbody>
-           		<c:forEach items="${requestScope.lista}" var="usuario">
-					<tr>
-                        <td>${usuario.id}</td>
-                        <td>${usuario.nome}</td>
-                        <td>${usuario.login}</td>
+                <%ArrayList<Usuario> lista = (ArrayList<Usuario>)request.getAttribute("Lista");
+                   
+                for(Usuario usuario:lista){%>
+                        
+                    <tr>
+                        <td><%out.print(usuario.getId());%></td>
+                        <td><%=usuario.getNome()%></td>
+                        <td><%=usuario.getLogin()%></td>
                         <td>
-                        	<a href ="usucontroller.do?action=excluir&id=${usuario.id}">EXCLUIR</a>|
-                        	<a href ="usucontroller.do?action=alt&id=${usuario.id}">ALTERAR</a>
+                        	<a href ="usucontroller.do?action=excluir&id=<%=usuario.getId()%>">EXCLUIR</a>|
+                        	<a href ="usucontroller.do?action=alt&id=<%=usuario.getId()%>">ALTERAR</a>
                         </td>
                     </tr>
-				</c:forEach>
+              <%}%>    
             </tbody>
         </table>
             
